@@ -1,0 +1,47 @@
+/* CSS for ViewTeams component */
+
+.container {
+  margin-top: 5%;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.form-group {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Style for the modal */
+.modal-body {
+  background-color: #f8f9fa;
+}
+
+/* Style for the password toggle button */
+.btn-outline-primary.indigo {
+  background-color: transparent;
+  border-color: #6610f2;
+  color: #6610f2;
+}
+
+/* Style for the table */
+.table-hover {
+  margin-top: 2rem;
+}
+
+/* Style for the action buttons in the table */
+.btn-sm {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}

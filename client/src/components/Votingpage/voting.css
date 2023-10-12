@@ -1,0 +1,86 @@
+
+.success {
+  color: green;
+  font-weight: bold;
+}
+
+/* Error message style */
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.visible {
+  display: block; /* Display the error message when the error state is true */
+}
+
+.hidden {
+  display: none; /* Hide the error message when the error state is false */
+}
+
+/* Styling for the vote-box container */
+.vote-box {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  max-width: 650px; /* Adjust the maximum width to your layout */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Styling for each team-container */
+.team-container {
+  margin: 10px 0;
+}
+
+/* Styling for radio buttons */
+.team-container input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Styling for the team labels */
+  .team-label {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 100%;
+  }
+
+.team-label:hover {
+  background-color: #e6e6e6;
+  
+}
+.team-label i {
+  margin-right: 5px; /* Adjust the margin as needed */
+}
+.team-label b {
+  margin-right: 15px; /* Adjust the margin as needed */
+}
+.team-container input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Style for custom indicators when a team is selected */
+.team-container input[type="radio"]:checked + .team-label {
+  background-color: #4f46e5; /* Change to your desired color */
+  color: #fff; /* Change to your desired text color */
+  font-weight: bold;
+}
+
+@media (max-width: 768px) { /* Adjust the screen width as needed */
+  .team-label {
+    white-space: normal; /* Allow text to wrap within the label */
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+}
