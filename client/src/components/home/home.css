@@ -1,0 +1,65 @@
+.mainhome {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #4f46e5;
+}
+
+.homelogin button,
+.homevote button {
+  background-color: rgb(255, 11, 137);
+  color: white;
+  font-size: 1rem;
+  margin-top: 30px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.homevote,
+.homelogin {
+  height: 80px;
+  width: 30%;
+  background-color: rgb(255, 11, 137);
+  color: white;
+  font-size: 1rem;
+  margin-top: 30px;
+  cursor: pointer;
+  font-weight: 400;
+  border-radius: 15px;
+  transition: all 0.2s ease;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.homevote:hover,
+.homelogin:hover {
+  background-color: rgb(255, 11, 235);
+}
+
+.homevote:hover button,
+.homelogin:hover button {
+  background-color: rgb(255, 11, 235);
+}
+
+.homehead {
+  color: white;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .mainhome {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .homevote,
+  .homelogin {
+    width: 70%; /* Adjust the width for better mobile view */
+    margin-top: 10px; /* Adjust the margin as needed */
+  }
+}

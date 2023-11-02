@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
 import "./Projectform.css";
 import { Link } from "react-router-dom";
+import Navibar from "../navbar/Navibar";
 
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
@@ -175,6 +176,7 @@ function Projectform() {
   };
 
   return (
+    <><Navibar/>
     <div className="mainbody">
       <section className="container">
         <header>Add a Project</header>
@@ -261,7 +263,7 @@ function Projectform() {
           </button>
         </form>
       </section>
-    </div>
+    </div></>
   );
 }
 

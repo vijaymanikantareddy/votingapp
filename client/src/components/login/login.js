@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 import "./loginstyle.css";
 // import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setIsLoggedIn, isLoggedIn }) {
   const [password, setPassword] = useState("");
   const [showpassword, setShowpassword] = useState(false);
   const [email, setEmail] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -26,14 +26,13 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log(password, email);
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
-        console.log(result);
-        if (result.data === "successuser") {
-          // navigate("/user_complaint_form");
-        } else if (result.data === "successadmin") {
-          // navigate("/Complaintform_admin");
+        // console.log(result.data);
+        if (result.data === "success") {
+          navigate("/viewprojects");
         } else if (result.data === "Incorrect Password") {
           alert("Incorrect Password");
         } else {
@@ -100,6 +99,7 @@ function Login() {
             <button
               type="submit"
               className="border-2 border-indigo-800 bg-indigo-700 text-white py-1 w-full rounded-md hover:text-black font-semibold hover:bg-indigo-900 "
+              onClick={handleSubmit}
             >
               Login
             </button>

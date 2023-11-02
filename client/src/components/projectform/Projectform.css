@@ -164,20 +164,19 @@
   display: none;
 }
 .form .input-box.textarea {
-    width: 100%;
-  }
-  
-  .form .input-box.textarea textarea {
-    width: 100%;
-    min-height: 50px; /* You can adjust the height as needed */
-    resize: vertical; /* Allow vertical resizing */
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid gray;
-  }
-  
+  width: 100%;
+}
 
-  .form .input-box.textarea textarea:focus {
-    border-color: blue; /* Set the border color to blue when focused */
-    outline: none; /* Remove the default focus outline */
-  }
+.form .input-box.textarea textarea {
+  width: 100%;
+  min-height: 50px; /* You can adjust the height as needed */
+  resize: vertical; /* Allow vertical resizing */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.form .input-box.textarea textarea:focus {
+  border-color: blue; /* Set the border color to blue when focused */
+  outline: none; /* Remove the default focus outline */
+}

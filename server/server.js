@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const userModel = require("./models/Users");
+const adminModel = require("./models/Admins");
 const projectModel = require("./models/Projects");
 const nodemailer = require("nodemailer");
 const voterModel = require("./models/Voters");
@@ -146,6 +146,16 @@ app.get("/next-team-number", (req, res) => {
   );
 });
 
+app.get("/getprojectsdata", async (req, res) => {
+  try {
+    const projects = await projectModel.find({});
+    res.json(projects);
+  } catch (error) {
+    console.log("Error Fetching data: ", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.get("/getProject/:id", (req, res) => {
   const id = req.params.id;
   userModel
@@ -179,23 +189,24 @@ app.put("/updateProject/:id", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  cmsModel.findOne({ email: email }).then((user) => {
-    if (user) {
-      if (user.password === password) {
-        if (user.type === "user") {
-          res.json("successuser");
-        } else if (user.type === "admin") {
-          res.json("successadmin");
-        }
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const admin = await adminModel.findOne({ email: email });
+
+    if (admin) {
+      if (admin.password === password) {
+        res.json("success");
       } else {
         res.json("Incorrect Password");
       }
     } else {
       res.json("No such record exists");
     }
-  });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json("An error occurred");
+  }
 });
 
 app.delete("/deleteProject/:id", (req, res) => {
@@ -248,8 +259,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: "******@gmail.com",
-    pass: "***********",
+    user: "svmreddy7799@gmail.com",
+    pass: "***********en",
   },
 });
 
@@ -275,7 +286,7 @@ app.post("/checkEmail", async (req, res) => {
 
 app.post("/sendemailtl", (req, res) => {
   const mailOptions = {
-    from: "*****@gmail.com",
+    from: "svmreddy7799@gmail.com",
     to: email,
     subject: "Testing Node Mails",
     html: `<div>
@@ -404,7 +415,7 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: "svmreddy7799@gmail.com",
-    pass: "tqxmbcczjurhpqen",
+    pass: "*********en",
   },
 });
 

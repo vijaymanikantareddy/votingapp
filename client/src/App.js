@@ -12,44 +12,25 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import OTP from "./components/otp/OTP";
 import Users from "./components/Users/Users";
 import Voting from "./components/Votingpage/Voting";
-import ViewProjects from "./components/projects/Viewprojects";
+import ViewProjects from "./components/votespage/Viewprojects";
+import Home from "./components/home/Home";
 function App() {
-  const [isAdminSigned, setIsAdminSigned] = useState(null);
-
-  const adminsignin = () => {
-    setIsAdminSigned(true);
-  };
-
-  const adminsignout = () => {
-    setIsAdminSigned(false);
-  };
-  const [isUserSigned, setIsUserSigned] = useState(null);
-
-  const usersignin = () => {
-    setIsAdminSigned(true);
-  };
-
-  const usersignout = () => {
-    setIsAdminSigned(false);
-  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className="App">
-      {/* <OTP /> */}
-
-      <Navibar />
-      <ViewProjects/>
-      {/* <Voting/>  */}
-      {/* <Users /> */}
-      {/* <Login/> */}
-      {/* <ViewTeams/> */}
-      {/* <Userpagess/> */}
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />}></Route>
-          <Route path="/userpages" element={<Userpagess />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/voting" element={<Voting />}></Route>
+          <Route
+            path="/login"
+            element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          ></Route>
+          <Route path="/viewprojects" element={<ViewProjects />}></Route>
+          <Route path="/addproject" element={<Projectform />}></Route>
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </div>
   );
 }
